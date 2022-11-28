@@ -46,4 +46,10 @@ function.
 
 
 
+Method Overloading:
+two or more methods can have same name but different parameters such methods are called Overloaded Methods.
+void foo()
+void foo(int a)               => Overloaded Function foo
+int foo(int a,int b)
+
  */
