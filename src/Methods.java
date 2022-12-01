@@ -52,4 +52,10 @@ void foo()
 void foo(int a)               => Overloaded Function foo
 int foo(int a,int b)
 
+
+
+Recursion:A function in java can call itself such calling of function by itself is called recursion.
+
+Example: Factorial of a number
+factorial(n)=n*factorial(n-1)
  */
