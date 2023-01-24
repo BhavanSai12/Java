@@ -1,0 +1,318 @@
+java is a high level,robust,secured,object oreinted and general purpose
+programming language.
+high level languge= human readable languages
+low level language= machine understandable languages
+robust(strong)
+uses Exceptional Handling Mechanism
+secured
+because of bytecode,jvm and no usage of pointers in java
+Object oreinted 
+uses following principles to built applications efficiently
+class
+object
+inheritance
+polymorphsim
+abstraction
+encapsulation
+using java we can develop desktop/standalone applications,web applications
+and mobile applications.
+
+java is a platform
+java is a Technology
+java is interpreter
+
+History of Java:
+Java was developed by James Gosling in 1991 at Sun Mircro Systems.
+Green Team: 3 members to develop a language for tv set up boxes
+green talk
+oak
+java   and silk are they have taken java as unique.
+in 2010 oracle was purchased sun micro system.
+
+java features:
+
+1.Simple
+
+syntax of java is similar to c,c++.
+API(application program interface): collection of predefined packages
+package: collection of classes and interfaces
+class: collection of methods
+Collections.sort(a);
+2. Object Oriented:
+
+uses following principles to built applications efficiently
+class
+object
+inheritance
+polymorphsim
+abstraction
+encapsulation
+
+3. Robust
+   java is strong because of Exceptional Handling
+ 4. Platform Independent
+java follows a principle called wora(write once run any where)
+
+write the code once in one os and executed in other operating systems.
+
+Execution flow of C program: if we compile any c program
+parrallely some supporting files are generated.
+sample.c----sample.obj----sample.bak,sample.exe
+
+
+a)preprocessor:
+ expands all preprocessor(#) statements
+ converts impure c program to pure c program
+Ex:#define PI 3.14
+#define a 2+3
+printf("%d",a*a); 2+3*2+3=2+6+3=11
+
+b)compiler:
+
+High level language-----compiler---Low level language
+(pure c)                           (assmbly language)
+sample.c-------Compiler------sample.asb
+
+c)assembler: it converts given assembly assembly language into some
+machine code(object code)
+sample.asb-----Assembler----sample.obj
+
+d)linker:
+it links the current object file with build in object file.make them
+a single file called sample.exe
+
+e)loader: sample.exe is loaded into the ram and generate excepeted output
+
+
+C is platform dependent:
+
+
+Excecution flow of Java Program:
+(wind10+i5)
+Sample.java------javac----Sample.class(byte code)
+
+
+Sample.class----java-- jvm--run in linux 
+                       jvm run in mac
+                       jvm run in windows
+
+jvm is platform dependent but byte code is plat independent.
+
+5. Interpreted
+compiler : translator converts hll to lll
+interpreter: its also translator
+compiler scan the code at a time but where as interpreter scan the code
+line by line
+java uses both compiler and interpreter
+but c uses only compiler
+Simple.java---compiler--Simple.class
+Simple.class---interpreter--Simple.exe
+
+
+6. Portable
+the size of int in c,c++ will be changed from processor to processor
+the size of int in java is unique for every processor
+
+7. Secure
+between java application and os some secure layer is there(jvm)(java virtual machine)
+bytecode is platform independent.and it is secured
+there is no concepts of pointers
+
+8. Multithreaded:
+makes cpu as busy
+multi tasking is implementing by thread.
+thread is light weighted process
+
+
+9. Dynamic
+dynamic means at the time of execution
+we are allocating memory for reference types at run time using new keyword
+we are declare variables dynamically also.
+
+
+10.Distributed
+transfer the data b/w the 2 different applications
+fetching user information from adhar site into a passport site.
+
+
+
+
+Application Areas of java:
+
+Desktop (GUI/CUI) Applications
+Web-Based Applications
+Enterprise Applications
+Mobile Applications
+Scientific Apps
+Embedded Systems
+Big Data Technologies
+Distributed Applications
+Cloud-based Apps
+Web servers and Application servers
+Software tools
+Gaming Apps
+
+
+Basic java Program structure:
+
+1)documantation section:
+represents comments
+comments are used to hide the code/debugg the code
+comments are not executed by the compiler
+comments are 3 types:
+1)single line comments 
+Ex://
+2)multiple line comments
+/*...
+
+*/
+
+3)document type comments
+/**....
+
+*/
+
+2)class with main method
+syn:
+class classname
+{
+public static void main(String args[])
+{
+
+}
+}
+
+Example:
+// to print welcome message
+class Greet
+{
+public static void main(String args[])
+{
+System.out.println("Hello EveryOne");
+}
+}
+
+Object Oriented program is collection of classes and objects
+
+class:
+class is a real world logical entity which define state(data) and 
+behaviour(methods)
+class is a collection of datamembers and methods
+class is collection of objects
+class is a user defined data type
+class is a blue print for creating objects
+
+Object:
+object is a real world physical entity which decrobes state and behaviour
+Object is an instance of class
+Objects is variable of type class
+
+Syn for class:
+class ClassName
+{
+data
+methods
+}
+syn for object:
+classname objname=new classname();
+
+Examples of class and Object:
+Student(c)
+rno
+name
+address
+course
+fee
+read()
+write()
+prepare()
+eat()
+walk()
+Objects:sai,prashanth,indraja
+Vechile (c)
+regNo;
+color
+model
+price
+start()
+stop()
+break()
+reverse()
+Objects: bmw,benz,...etc
+
+
+Assignment: ZomotoOrder(c) find data,methods and objects
+          :PayTm(c) find data,methods and objects
+
+class Calc
+{
+int a,b;
+add()
+sub()
+}
+
+
+class Calc
+{
+int a=10;
+int b=5;
+void add()
+{
+System.out.println(a+b);
+}
+void sub()
+{
+System.out.println(a-b);
+}
+public static void main(String args[])
+{
+Calc ob=new Calc();
+ob.add();
+ob.sub();
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
