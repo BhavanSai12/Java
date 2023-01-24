@@ -2,13 +2,15 @@ package exercism.org;
 
 import java.util.Scanner;
 
-public class ReverseString {
-    public static  String reverseString(String Sentence){  // set cheyale output vacheyalaga return chesteya null vasthundi so deniki
-        return new StringBuilder(Sentence).reverse().toString();
-    }
-    public static void main(String[]args){
+class main{
+    public static void main(String[] args){
+        //String str="hello";
         Scanner sc=new Scanner(System.in);
-        String Sentence = sc.next();
-        reverseString(Sentence);
+        String str= sc.next();
+        String rev="";
+        for (int i=str.length()-1;i>=0;i--){
+            rev+=str.charAt(i);
+        }
+        System.out.println(rev);
     }
 }
