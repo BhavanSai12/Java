@@ -1,0 +1,453 @@
+Token:
+is a smallest dataunit which has some meaning
+Tokes of Java:
+1)identifiers
+2)variables
+3)literals
+4)datatypes
+5)keywords
+6)other special characters
+
+
+keywords:
+are reserved words ,which has some meaning in the Library
+are basic building blocks of program
+keywords are represent in small case letters
+Ex:
+ datatypes: int,float,char
+ controlflow: if,else,for,while,do
+ upto java1.6 50 keywords +3 literals
+50(2 unused const,goto)+ true,false,null
+
+identifiers:
+identifier is the name of the register
+identifier is assign different literals
+identifier can be a variablename,methodname or a classname
+
+variable:
+variable is an identifier ,that can be varied
+variable is name of memory location
+variable is setting an identifier to a memory location
+
+declaration of variables:
+datatype varname=value;
+int a=10;
+constant/literal:
+variable is an identifier ,that can not be changed.
+different type of literals:
+integral literals:
+to represent numbers with out decimals use integral literals
+int a=100;
+decimal literals
+numbers with decimals
+float b=12.56f;
+double c=23.8976;
+character literals:
+char ch='^';
+String literals
+String s="codegnan";
+String n="123";
+to represent in octal format add 0 before the literal
+int a=0123
+to represent in hexadecimal format add 0x before the literal
+int a=0xa3
+to represent in binary format add 0b before the literal
+int a=0b1010;
+
+
+datatype:
+datatype specify the type, range and size of a variable.
+datatypes are 2 types
+
+1) primitive datatypes:
+the memory allocation for these before execution of program
+assigns only value
+Ex:
+boolean byte short char int long float double
+2)Non Primitive(Reference Types)
+Ex: String,Object,Class
+
+the memory allocation for these at runtime  of program
+assign multiple  values
+
+int a;
+printf("%d",a);//garbage values 
+in java no concept of garbage values,just JVM assign some values
+are called default values
+
+datatype       size          defaultvalue         range   
+boolean        1bit          false
+byte           1byte         0                 -128 to +127          
+short          2bytes        0                -32768 to +32767
+char           2bytes        space(' ')
+int            4bytes        0
+long           8bytes        0
+float          4bytes        0.0
+double         10bytes        0.0
+String                        null
+
+
+decalration of a variable:
+
+byte a=10;
+float b=12.56f;
+long c=859697777l;
+String d="venu";
+char g='%';
+
+
+jdk:(java developement kit)
+to develop java applications and run java programs
+jdk=jre+tools
+jre(java runtime enviornment)
+to run java application at user machine provides enviornment
+jre=jvm+libraries
+jvm(java virtual machine)
+loads the .class file
+provides the run time areas
+and generate the .exe file
+
+Test.java-------Javac------Test.class(byte code)
+Test.class-----Java------Test.exe
+
+
+types of variables:
+1)static variables
+2)instance variables
+3)local variables
+
+static variables:
+the variables which are declared inside the class,and outside the main method
+uses static keyword is called static variables
+class Test
+{
+static int x;
+psvm()
+{
+}
+}
+
+points:
+static is realted to class
+the memory allocation for static variables is during class loading
+to access static variables we can use classname in another class
+and access directly with in the same class
+if we are not assigning values for the static variables 
+default values are assigned
+static variables memory is sharable 
+static variable values are available for every objects.
+
+Ex1:
+class Test
+{
+static int a=100;
+static String s="codegnan"; //static data members
+public static void main(String args[])
+{
+System.out.println("value of a= "+a);
+System.out.println("value of s= "+s);
+}
+}
+
+Ex2:
+class Test
+{
+static int a;
+static String s; //static data members
+public static void main(String args[])
+{
+System.out.println("value of a= "+a);
+System.out.println("value of s= "+s);
+}
+}
+
+Ex3:
+class A
+{
+static int a=100;
+static String s="venu";
+}
+class Test
+{
+public static void main(String args[])
+{
+System.out.println("value of a= "+A.a); //accessble using classname
+System.out.println("value of s= "+A.s);
+}
+}
+
+
+
+2)instance variables(non-static)
+
+variables which are declared inside the class and outside the main method
+with out using static keyword is called instance variables
+Ex:
+class Test
+{
+int a;
+float b; 
+psvm()
+{
+}
+}
+
+points:
+instance is realted to object
+the memory allocation for instance variables is during object creation
+to access instance variables we can use objectname.
+if we are not assigning values for the instance variables 
+default values are assigned
+instance variables memory is not-sharable 
+instance variable values are not available for every objects.
+for Every Object a seperate memory copy is created for instance variables
+
+Ex1:
+class Test
+{
+char ch='$';
+float b=12.45f; //instance members
+public static void main(String args[])
+{
+Test ob=new Test();
+System.out.println("value of ch= "+ob.ch);
+System.out.println("value of b= "+ob.b);
+}
+}
+
+
+Ex2:
+class Test
+{
+char ch;
+float b; //instance members
+public static void main(String args[])
+{
+Test ob=new Test();
+System.out.println("value of ch= "+ob.ch);
+System.out.println("value of b= "+ob.b);
+}
+}
+
+
+Ex3: //instance members access by object only otherwise errors will come
+class Test
+{
+char ch;
+float b; //instance members
+public static void main(String args[])
+{
+Test ob=new Test();
+System.out.println("value of ch= "+ch);
+System.out.println("value of b= "+b);
+}
+}
+
+
+3)local variables
+
+the variables which are declared inside the methods and out side the class
+are called local variables
+
+Ex:
+class Test
+{
+void show()
+{
+int a=100; //a is local variable
+sop(a);
+}
+psvm()
+{
+int c=10; //c is local variables
+}
+}
+
+points:
+default values are not assigned for local variables
+its only for the data members for the class.
+local varibales must be intialized before their usage.
+local variables are accessed directly with in the method only
+when method terminates the scope is not visible for the local variables
+
+Ex1:
+class Test
+{
+public static void main(String args[])
+{
+boolean flag=true;
+long mNo=9898787872l;
+System.out.println("value of flag= "+flag);
+System.out.println("value of mno= "+mNo);
+}
+}
+
+
+Ex2: error will come
+class Test
+{
+public static void main(String args[])
+{
+boolean flag;//local variables must be intialized
+System.out.println("value of flag= "+flag);
+}
+}
+
+
+Ex3:
+class Test
+{
+void show() //user defined method
+{
+int a=10;// a is local variable
+System.out.println("value of a: "+a);
+}
+public static void main(String args[]) //main method
+{
+Test ob=new Test();
+ob.show();
+}
+}
+
+Programs.exercises.Assignment:
+create a class Student
+having 3 datamembers rno,name and clgName
+calculate avgMarks of a Student using 3 local variables
+called m1,m2,m3 and display the Student Details as
+Name
+Rno
+CollegeName
+AvgMarks
+Note: use atleast one instance ,one static variables as a datamember
+and assign values directly only for all variables.
+
+
+
+
+
+
+
+Ex:
+class Student
+{
+int rno=1234;
+String name="sai";
+static String clgName="Gitam"; //static variable
+double fee=600000.0; //instance variable
+public static void main(String args[])
+{
+Student s=new Student();
+int marks1=87;//local variable
+int marks2=88;
+int marks3=90;
+double tMarks=(marks1+marks2+marks3);
+double avgMarks=tMarks/3;
+System.out.println("Name of the Student: "+s.name);
+System.out.println("Roll No of the Student: "+s.rno);
+System.out.println("College Name of the Student: "+Student.clgName);
+System.out.println("Fee : "+s.fee);
+System.out.println("Average Marks of the Student: "+avgMarks);
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
