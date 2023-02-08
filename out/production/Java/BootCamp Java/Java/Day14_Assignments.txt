@@ -1,0 +1,500 @@
+1. Write a program which creates a class “Student” with the following
+Data Members
+rollNum, studName, mark1, mark2, mark3, totalMarks
+Methods
+setStudDetails() – which sets the values to all the data members except
+totalMarks.
+calculateTotal() - which calculate the totalMarks
+displayStudDetails() – which displays rollNum, studName and totalMarks
+Create a class StudentDemo to test the functionality of Student class
+
+Sol:
+package com.codegnan;
+class Student{
+	int rollNum;
+	String studName;
+	int mark1,mark2,mark3,totalMarks;
+	void setStudDetails(int r,String s,int m1,int m2,int m3){
+		rollNum=r;
+		studName=s;
+		mark1=m1;
+		mark2=m2;
+		mark3=m3;
+	}
+	void calculateTotal(){
+		totalMarks=mark1+mark2+mark3;
+	}
+	void displayStudDetails(){
+		System.out.println("Name: "+studName);
+		System.out.println("Roll No: "+rollNum);
+		System.out.println("Total Marks: "+totalMarks);
+	}
+}
+public class StudentDemo {
+
+	public static void main(String[] args) {
+		Student s1=new Student();
+		s1.setStudDetails(100,"venu", 98, 78, 87);
+		s1.calculateTotal();
+		s1.displayStudDetails();
+		Student s2=new Student();
+		s2.setStudDetails(108,"sairam", 78, 85, 95);
+		s2.calculateTotal();
+		s2.displayStudDetails();
+    
+
+
+	}
+
+}
+===========================================================================
+2. Create a class Account with the attributes accountNo – int, accountType –
+String, accountBalance – int and methods setAccountDetails()
+which set the values to these attributes, withdraw() which subtracts the
+given amount from the available balance, deposit()
+which adds given amount to the available balance and dispAccountDetails()
+which displays accountNo, accountType, accountBalance.
+Create a class TestAccount which contains the main() method to test the
+functionality of the Account class
+
+
+package com.codegnan;
+class Account{
+	int accountNo;
+	String accountType;
+	int accountBalance;
+	void setAccountDetails(int accno,String acctype,int bal){
+		accountNo=accno;
+		accountType=acctype;
+		accountBalance=bal;
+	}
+	void deposit(int amount) {
+		accountBalance=accountBalance+amount;
+		
+	}
+	void withdraw(int amount) {
+		accountBalance=accountBalance-amount;
+		
+	}
+	void dispAccountDetails(){
+		System.out.println("Account Number: "+accountNo);
+		System.out.println("Account Type: "+accountType);
+		System.out.println("Balance: "+accountBalance);
+	}
+	
+}
+public class TestAccount {
+
+	public static void main(String[] args) {
+		Account user1=new Account();
+		user1.setAccountDetails(131416745,"SalaryType",50000);
+		user1.deposit(250000);
+        user1.dispAccountDetails();
+        user1.withdraw(65000);
+        user1.dispAccountDetails();
+        Account user2=new Account();
+		user2.setAccountDetails(1314168765,"SavingType",20000);
+		user2.deposit(20000);
+         user2.withdraw(15000);
+        user2.dispAccountDetails();
+
+
+	}
+
+}
+==========================================================================
+Convert the above two programs using constructors
+
+3)
+a)
+package com.codegnan;
+class Student{
+	int rollNum;
+	String studName;
+	int mark1,mark2,mark3,totalMarks;
+   
+
+	public Student(int rollNum, String studName, int mark1, int mark2, int mark3) {
+        this.rollNum = rollNum;
+		this.studName = studName;
+		this.mark1 = mark1;
+		this.mark2 = mark2;
+		this.mark3 = mark3;
+	}
+	void calculateTotal(){
+		totalMarks=mark1+mark2+mark3;
+	}
+	void displayStudDetails(){
+		System.out.println("Name: "+studName);
+		System.out.println("Roll No: "+rollNum);
+		System.out.println("Total Marks: "+totalMarks);
+	}
+}
+public class StudentDemo {
+
+	public static void main(String[] args) {
+		Student s1=new Student(100,"venu", 98, 78, 87);
+        s1.calculateTotal();
+		s1.displayStudDetails();
+		Student s2=new Student(108,"sairam", 78, 85, 95);
+        s2.calculateTotal();
+		s2.displayStudDetails();
+    
+
+
+	}
+
+}
+
+
+b)
+package com.codegnan;
+class Account{
+	int accountNo;
+	String accountType;
+	int accountBalance;
+   
+
+	public Account(int accountNo, String accountType, int accountBalance) {
+        this.accountNo = accountNo;
+		this.accountType = accountType;
+		this.accountBalance = accountBalance;
+	}
+	void deposit(int amount) {
+		accountBalance=accountBalance+amount;
+		
+	}
+	void withdraw(int amount) {
+		accountBalance=accountBalance-amount;
+		
+	}
+	void dispAccountDetails(){
+		System.out.println("Account Number: "+accountNo);
+		System.out.println("Account Type: "+accountType);
+		System.out.println("Balance: "+accountBalance);
+	}
+	
+}
+public class TestAccount {
+
+	public static void main(String[] args) {
+		Account user1=new Account(131416745,"SalaryType",50000);
+        user1.deposit(250000);
+        user1.dispAccountDetails();
+        user1.withdraw(65000);
+        user1.dispAccountDetails();
+        Account user2=new Account(1314168765,"SavingType",20000);
+		user2.deposit(20000);
+        user2.withdraw(15000);
+        user2.dispAccountDetails();
+
+
+	}
+
+}
+
+4. Write a program to create a class Rectangle with data members length and
+breadth. Create a method area() which finds the area of the rectangle.
+Use constructors to assign values to data members
+
+package com.codegnan;
+
+public class Rectangle {
+	double length;
+	double breadth;
+	
+
+	public Rectangle(double length, double breadth) {
+		this.length = length;
+		this.breadth = breadth;
+	}
+    public double area()
+    {
+    	return length*breadth;
+    }
+
+	public static void main(String[] args) {
+		Rectangle r=new Rectangle(3.45,6.78);
+		System.out.println(r.area());
+
+	}
+
+}
+
+
+=================================================================================
+5. Write a program to find the number of instances created for a given class.
+
+package com.codegnan;
+
+public class Count {
+	static int c=0;
+	Count()
+	{
+	c++;	
+	}
+
+	public static void main(String[] args) {
+		Count c1=new Count();
+		Count c2=new Count();
+		Count c3=new Count();
+		Count c4=new Count();
+		Count c5=new Count();
+		System.out.println(c);
+		
+	}
+
+}
+
+===================================================================
+6. Create a class Book with the data members bno,bname,price.
+Create a class SpecialEditionBook which is subclass of Book and with a data
+member
+discount. Create a class BookTest with main() to test the above classes
+Note
+- Use constructors to give the values to the data members
+- create a method display() in Book class which displays bno,bname and price
+and override the same display() of Book class in SpecialEditionBook which
+displays bno,bname,price using super.display() and display the value of
+discount.
+
+package com.codegnan;
+class Book{
+	int bno;
+	String bname;
+	double price;
+	public Book(int bno, String bname, double price) {
+		this.bno = bno;
+		this.bname = bname;
+		this.price = price;
+	}
+	public void display(){
+		
+		System.out.println("Book Number: "+bno);
+		System.out.println("Book Name: "+bname);
+		System.out.println("Book Price: "+price);
+	}
+	
+}
+class SpecialEditionBook extends Book
+{
+int discount;
+
+public SpecialEditionBook(int bno, String bname, double price, int discount) {
+	super(bno, bname, price);
+	this.discount = discount;
+}
+public void display(){
+	
+	super.display();
+	System.out.println("Book discount: "+discount);
+    price=price-discount;
+    System.out.println("After Discount: Book Details");
+    super.display();
+
+}
+}
+public class BookTest {
+
+	public static void main(String[] args) {
+		SpecialEditionBook sp=new SpecialEditionBook(1947,"compierls",2500.00,250);
+		sp.display();
+		Book nb=new Book(1857,"toc",1500.00);
+		nb.display();
+
+	}
+
+}
+
+=========================================================================
+
+7. Create an abstract class “Fruit” which contains an abstract method cost().
+Create sub classes “Apple and Mango” which extends Fruit class. Use
+appropriate data members in the respective classes. Create a class FruitDemo to
+test the above functionalities.
+
+
+package com.codegnan;
+abstract class Fruit
+{
+	int weight=5;
+	abstract void cost();
+}
+class Apple extends Fruit{
+	
+
+	void cost() {
+		System.out.println("Cost of "+weight+" Kgs of Apples : Rs.300");
+		
+	}
+	
+}
+class Mango extends Fruit{
+	
+
+	void cost() {
+		System.out.println("Cost of "+weight+" Kgs of Mangoes : Rs.500");
+		
+	}
+	
+}
+public class FruitDemo {
+
+	public static void main(String[] args) {
+		Apple ap=new Apple();
+		 ap.cost();
+		 Mango mp=new Mango();
+		 mp.cost();
+	}
+
+}
+==================================================================================
+8. Modify the above program using interfaces
+
+package com.codegnan;
+interface Fruit
+{
+	int weight=5;
+	 void cost();
+}
+class Apple implements Fruit{
+	
+
+	public void cost() {
+		System.out.println("Cost of "+weight+" Kgs of Apples : Rs.300");
+		
+	}
+	
+}
+class Mango implements Fruit{
+	
+
+	public void cost() {
+		System.out.println("Cost of "+weight+" Kgs of Mangoes : Rs.500");
+		
+	}
+	
+}
+public class FruitDemo {
+
+	public static void main(String[] args) {
+		Apple ap=new Apple();
+		 ap.cost();
+		 Mango mp=new Mango();
+		 mp.cost();
+	}
+
+}
+
+====================================================================================
+
+9. Create a package “com.account”.
+Create a class “Account” with the fields acctId, acctType, acctBalance.
+Use the Constructor to set the values to these fields.
+Create the following methods in the Account class
+void deposit(int amount)
+void withdraw(int amount)
+int getBalance()
+void display()
+Create a package “com.account.test”.
+Create a class “AccountMain” with the main() and displays the following menu
+1. Deposit
+2. Withdraw
+3. Display Balance
+4. Exit
+Note:
+The menu should display repeatedly until the user chooses
+Exit and the input need to accepted during runtime using Scanner class
+
+9 a:
+package com.account;
+
+public class Account {
+	int acctId;
+	String acctType;
+	int acctBalance;
+	public Account(int acctId, String acctType, int acctBalance) {
+		super();
+		this.acctId = acctId;
+		this.acctType = acctType;
+		this.acctBalance = acctBalance;
+	}
+	public void deposit(int amount) {
+		acctBalance=acctBalance+amount;
+	}
+	public void withdraw(int amount) {
+		acctBalance=acctBalance-amount;
+	}
+	public int getBalance() {
+		return acctBalance;
+	}
+	public void display(){
+		System.out.println("Account Id:  "+acctId);
+		System.out.println("Account Type:  "+acctType);
+		System.out.println("Account Balance:  "+acctBalance);
+	}
+}
+
+
+b.
+package com.account.test;
+import com.account.Account;
+public class AccountMain {
+
+	public static void main(String[] args) {
+      Account ac1=new Account(1435,"savings",25000);
+      ac1.deposit(34000);
+      ac1.withdraw(20000);
+      ac1.getBalance();
+      ac1.display();
+	}
+
+}
+
+
+for doing exact Require do some changes
+
+
+package com.account.test;
+import java.util.Scanner;
+
+import com.account.Account;
+public class AccountMain {
+
+	public static void main(String[] args) {
+		Account ac1=new Account(1435,"savings",25000);
+               ac1.display();
+		Scanner sc=new Scanner(System.in);
+		int ch=0;
+		do {
+			System.out.println("1. Deposit");
+			System.out.println("2. Withdraw");
+			System.out.println("3. Display Balance");
+			System.out.println("4. Exit");
+			System.out.println("enter ur choice");
+			ch=sc.nextInt();
+			switch(ch){
+			case 1:
+				System.out.println("Enter the amount to deposit");
+				int amount=sc.nextInt();
+			 ac1.deposit(amount);
+			 break;
+			case 2:
+				System.out.println("Enter the widraw amount");
+				int amt=sc.nextInt();
+			 ac1.withdraw(amt);
+			 break;
+			case 3:
+				System.out.println("Account Details");
+                 ac1.display();
+                 break;
+			}   
+			}while(ch!=4);
+		 
+      
+	}
+
+}
+
+
+

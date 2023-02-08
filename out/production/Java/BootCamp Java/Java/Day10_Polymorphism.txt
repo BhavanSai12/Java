@@ -1,0 +1,484 @@
+Polymorphism:(poly +morphism)
+poly means many and morphism means forms
+finally polymorphism means many forms
+Ability to represent one in many forms is called polymorphism.
+An object is exhibit different behaviour in different situations
+A method exhibit diffrent behaviour in different situation 
+
+types of polymorphism:
+1) compile time polymorphism or early binding polymorphism
+  the method behaviour is bounded at compile time.
+  Ex: Method Overloading
+ 
+
+2) run time polymorphism or lately binding polymorphism
+ the method behaviour is rebounds and depends at run time
+
+  Ex: a)Method Overriding  b)Inheritance c)Up casting
+
+
+Method Overloading:
+A method which has same name but different signatures.
+same method with different no of argumnets
+same method with different type of argumnets
+same method with different order of argumnets
+Ex:
+  void sum(int a,int b)
+  void sum(double a,double b,double c)
+  void sum(int a,double b)
+  void sum(double a,int b)
+
+ createContacts(name,phoneno);
+ createContacts(name,phoneno1,phoneno2);
+
+
+1) create a class Calc
+use findArea()  for traingle
+    findArea(int s) for square
+    findArea(float l,float b) for rectangle
+    findArea(double r) for circle
+
+Ex:
+
+public class Calc {
+	void findArea()
+	{
+	int b=3;
+	int h=5;
+	System.out.println("Area of Traingle: "+(0.5*b*h));	
+	}
+	void findArea(int s)
+	{
+	System.out.println("Area of Square: "+(s*s));	
+	}
+	void findArea(float l,float b)
+	{
+	System.out.println("Area of Rectangle: "+(l*b));	
+	}
+	void findArea(double r)
+	{
+	System.out.println("Area of Circle: "+(Math.PI*r*r));	
+		
+	}
+
+	public static void main(String[] args) {
+     Calc ob=new Calc();
+     ob.findArea();
+     ob.findArea(3);
+     ob.findArea(2.5);
+     ob.findArea(1.2f,2.4f);
+
+
+	}
+
+}
+
+
+
+Ex2:
+
+public class Calc2 {
+	  void sum(int a,int b)
+	  {
+		System.out.println(a+b);  
+	  }
+	  void sum(int a,double b)
+	  {
+		  System.out.println(a+b);
+	  }
+	  void sum(double a,double b)
+	  {
+		 System.out.println(a+b); 
+	  }
+	public static void main(String[] args) {
+   Calc2 ob=new Calc2();
+   ob.sum(34,67);
+   ob.sum(346,45.78);
+   ob.sum(2.56,4.67);
+
+
+	}
+
+}
+to implement method overloading one class is enough,but to implements
+ovverding 2 classes are need.
+
+Method Overriding:
+A method with same signature of super class is redefined in its sub class.
+Ex:
+class A{
+m(){}
+}
+class B extends A
+{
+m(){}// m() is overidden 
+}
+
+Ex1:
+class A
+{
+void greet() //method hiding
+{
+	System.out.println("welcome");
+}
+}
+class B extends A
+{
+	void greet()// method overidden 
+	{
+		System.out.println("Good Evening");
+	}
+}
+public class MethodOveride {
+
+	public static void main(String[] args) {
+		B ob=new B();
+		ob.greet();
+
+	}
+
+}
+
+
+Ex2:
+class A
+{
+void greet() //method hiding
+{
+	System.out.println("welcome");
+}
+}
+class B extends A
+{
+	void greet()// method overidden 
+	{
+		System.out.println("Good Evening");
+	}
+}
+public class MethodOveride {
+
+	public static void main(String[] args) {
+		A ob=new A();
+		ob.greet();
+
+	}
+
+}
+
+o/p: ?
+
+Upcasting:
+create reference variable for parent class,which is assign to
+subclass object
+A ob;
+ob=new B();
+or
+A ob=new B();
+
+Ex: late binding polymorphism= Inheritance+Method Overriding+Upcasting
+
+class A
+{
+void greet() //method hiding
+{
+	System.out.println("welcome");
+}
+}
+class B extends A
+{
+	void greet()// method overidden 
+	{
+		System.out.println("Good Evening");
+	}
+}
+public class MethodOveride {
+
+	public static void main(String[] args) {
+		A ob=new B();
+		
+		ob.greet();
+
+	}
+
+}
+
+
+create a class Employee having 2 subclasses Developer and Manager
+name,id,salary are  datamembers and incSalary() method of Employee
+override the  incSalary() in sub classes.
+
+EX:
+class Employee
+{
+int id;
+String name;
+double salary=25000;
+void incSalary()
+{
+salary =salary+10000;
+System.out.println("After Increment Employee Salary: "+salary);
+}
+}
+class Developer extends Employee
+{   
+	double salary=45000;
+	void incSalary()
+	{
+		salary =salary+15000;
+		System.out.println("After Increment Developer Salary: "+salary);	
+	}	
+}
+class Manager extends Employee
+{
+	double salary=60000;
+	void incSalary()
+	{
+		salary =salary+18000;
+		System.out.println("After Increment Manager Salary: "+salary);	
+	}	
+}
+public class TestEmp {
+
+	public static void main(String[] args) {
+		Manager m=new Manager();
+		m.incSalary();
+		Developer d=new Developer();
+		d.incSalary();
+		Employee e=new Employee();
+		e.incSalary();
+
+	}
+
+}
+
+
+implement the method overriding with 2 methods calc()
+using parent class calc(int a) find the square of given number
+      child class calc(int a) find the sqrt of given number
+
+Ex:
+
+class X
+{
+void calc(int x)
+{
+	System.out.println(x*x);
+}
+}
+class Y extends X
+{
+void calc(int x)
+	{
+	  super.calc(x);
+		System.out.println(Math.sqrt(x));
+	}	
+}
+public class TestTask {
+
+	public static void main(String[] args) {
+		 Y ob=new Y();
+		 ob.calc(25);
+
+	}
+
+}
+
+
+
+during overriding time increase the permissions or 
+use same level permissions(but not reduce the permissions) 
+
+
+Ex:
+
+class X
+{
+ void m()
+{
+	System.out.println("m() method of class A");
+}
+}
+class Y extends X
+{
+public void m()
+	{
+		System.out.println("m() method of class B");
+	}	
+}
+public class TestPerm {
+
+	public static void main(String[] args) {
+		Y ob=new Y();
+		ob.m();
+
+	}
+
+}
+
+
+Can we overload static methods?
+Yes,we can
+
+public class Test {
+	
+public static void main(int a)
+{
+System.out.println("main method with int argument");	
+}
+public static void main(String b)
+{
+System.out.println("main method with String argument");	
+}
+public static void main(String[] args) {
+	System.out.println("main method is overloaded");
+	main(10);
+	main("venu");
+
+}
+}
+
+
+Can we override static methods?
+No,we can not
+method overriding is based on dynamic binding at runtime and the static methods
+ are bonded using static binding at compile time. So,
+ we cannot override static methods
+
+Ex:
+
+class X
+{
+  public static void m()
+{
+	System.out.println("X class method");
+}
+}
+class Y extends X
+{
+public static void m()
+	{
+		System.out.println("Y class Method");
+	}	
+}
+public class TestPerm {
+
+	public static void main(String[] args) {
+		X ob=new Y();
+		ob.m();
+
+	}
+
+}
+
+Need of Var Argumnets:
+class  Var
+{
+	void sum(int a,int b)
+	{
+		System.out.println(a+b);
+	}
+	void sum(int a,int b,int c)
+	{
+		System.out.println(a+b+c);
+	}
+	public static void main(String[] args) 
+	{
+		Var ob=new Var();
+		ob.sum(10,20);
+		ob.sum(1,2,5);
+		//ob.sum(3);
+		//ob.sum();
+	}
+}
+
+
+
+var arguments methods:methods with variable no of arguments.
+methods accept  zero or any no of arguments.
+
+Ex:
+public static void main(String...args){}
+public void sum(int...a){}
+
+
+class  Var
+{
+	void sum(int...a)
+	{
+    int sum=0;
+	for(int e:a)
+		sum=sum+e;
+    System.out.println(sum);
+	}
+	
+
+	public static void main(String[] args) 
+	{
+		Var ob=new Var();
+		ob.sum(10,20);
+		ob.sum(1,2,5);
+		ob.sum(3);
+		ob.sum();
+	}
+}
+
+
+
+the final keyword can be used  for three different purposes.
+1)the final variables
+2)the final methods
+3)the final classes.
+final variable(final local variable)
+in entire java only one modifier is applicable to local variables,.i.e final
+final class--->no inheritance
+final method--->no override
+final variable-->value cannot modified
+
+
+Ex1: error
+class A
+{
+final void greet() //method hiding
+{
+	System.out.println("welcome");
+}
+}
+class B extends A
+{
+	void greet()// method overidden 
+	{
+		System.out.println("Good Evening");
+	}
+}
+public class MethodOveride {
+
+	public static void main(String[] args) {
+		A ob=new B();
+		
+		ob.greet();
+
+	}
+
+}
+
+
+Ex2:
+
+public class MethodOveride {
+
+	public static void main(String[] args) {
+		final int a=10;
+		a=a+100;
+		
+		System.out.println(a);
+		
+
+	}
+
+}
+
+
+
+
+
+

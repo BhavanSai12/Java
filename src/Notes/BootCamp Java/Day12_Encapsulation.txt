@@ -1,0 +1,452 @@
+Encapsulation:
+wrapping up of data memebers and methods into a Single Unit is called
+class.
+applying access modifiers to data members and methods are also
+called encapsulation.
+Hiding the data details
+Advantage:
+Security
+
+class consits of datamembers(Attributes) and methods(Behaviours)
+
+class classname  //normal class
+{
+A+B
+}
+after applying access modifiers class will become encapsualted
+
+class classname //encapsulated class
+{
+Access modiers(A+B)
+}
+
+
+to implement encapsulation apply private access modifier to the datamembers
+of the class.
+
+Ex:
+class Student
+{
+private int rno;
+private String name;
+}
+private: it is an access modifier ,who scope is with in the class.
+i.means private members access with in that class only, and not
+outside the class.
+Ex1:
+class A
+{
+private int a=100;//instance variable
+public static void main(String args[])
+{
+A ob =new A();
+System.out.println(ob.a);
+}
+}
+
+Ex2:error
+class A
+{
+private int a=100;//instance variable
+}
+class TestA
+{
+public static void main(String args[])
+{
+A ob =new A();
+System.out.println(ob.a);
+}
+}
+
+public: scope is inside the class,outside the class,or inside /outside of
+package.
+
+the data members of public are accessed any where.
+Ex3:
+
+class A
+{
+private int a=100;//instance variable
+public void showA()
+{
+System.out.println(a);
+}
+}
+class TestA
+{
+public static void main(String args[])
+{
+A ob =new A();
+ob.showA();
+}
+}
+
+
+create a class Student having 2 datamembers rno and name has private
+and display student details using display() method.
+
+
+Ex1:
+class Student
+{
+private int rno=100;
+private String name="sairam";
+public void display()
+{
+System.out.println("Name of Student: "+name);
+System.out.println("Roll No of Student: "+rno);
+}
+}
+class TestStudent
+{
+public static void main(String args[])
+{
+Student s=new Student();
+s.display();
+}
+}
+
+
+
+Ex2:
+class Student
+{
+private int rno;
+private String name;
+public Student(int rno,String name)
+{
+this.rno=rno;
+this.name=name;
+}
+public void display()
+{
+System.out.println("Name of Student: "+name);
+System.out.println("Roll No of Student: "+rno);
+}
+}
+class TestStudent
+{
+public static void main(String args[])
+{
+Student s1=new Student(100,"sairam");
+s1.display();
+Student s2=new Student(200,"venu");
+s2.display();
+}
+}
+
+using constructor at a time we are assigning vales for all
+datamembers of the class.to assign datamebers  one by one 
+to access datamebers one by one we need setters and setters method.
+
+setters and getters :
+
+setters: setting the value into a damamember using public access modifier
+save the value.
+getters: access the data member value and using public access meodifier
+fetch the value.
+
+when a class has all private data members use public setters and public 
+getters for assign and access data members any where in the Application.
+
+finally A class with private members and public setters and getters are
+called bean class.
+Bean is a Reusable Software Component.
+
+class Student
+{
+private int rno;
+private String name;
+public void setRno(int rno)
+{
+this.rno=rno;
+}
+public void setName(String name)
+{
+this.name=name;
+}
+public int getRno()
+{
+return rno;
+}
+public String getName()
+{
+return name;
+}
+public void display()
+{
+System.out.println("Name of Student: "+name);
+System.out.println("Roll No of Student: "+rno);
+}
+}
+class TestStudent
+{
+public static void main(String args[])
+{
+Student s=new Student();
+s.setRno(100);
+s.setName("sai");
+System.out.println("Name :"+s.getName());
+System.out.println("Rollno :"+s.getRno());
+Student s1=new Student();
+s1.setRno(101);
+s1.setName("ganesh");
+System.out.println("Name :"+s1.getName());
+System.out.println("Rollno :"+s1.getRno());
+}
+}
+
+Ex3:
+class Student
+{
+private int rno;
+private String name;
+public Student(int rno,String name)
+{
+this.rno=rno;
+this.name=name;
+}
+public Student()
+{
+}
+public void setRno(int rno)
+{
+this.rno=rno;
+}
+public void setName(String name)
+{
+this.name=name;
+}
+public String toString()
+{
+ return " Name: "+name+" RollNo: "+rno; 
+}
+}
+class TestStudent
+{
+public static void main(String args[])
+{
+Student s1=new Student(100,"sairam");
+Student s2=new Student();
+s2.setName("venu");
+s2.setRno(102);
+System.out.println(s1);//s1.toString();
+System.out.println(s2.toString());
+}
+}
+
+Ex4:
+class Student
+{
+}
+class TestStudent
+{
+public static void main(String args[])
+{
+Student s=new Student();
+System.out.println(s);
+}
+}
+
+o/p:
+Student@7852e922
+
+toString(): return the object value in string format
+class Student
+{
+public String toString()
+{
+return "venu";
+}
+}
+class TestStudent
+{
+public static void main(String args[])
+{
+Student s=new Student();
+System.out.println(s);
+}
+}
+
+Question:
+create a Bean class Emp having data members id,name and salary
+ use constructor and setter and assign the values
+use toString and getter access the values.
+
+Ex:
+class Emp
+{
+private int id;
+private String name;
+private double salary;
+public Emp() {
+}
+public Emp(int id, String name, double salary) {
+	super();
+	this.id = id;
+	this.name = name;
+	this.salary = salary;
+}
+public int getId() {
+	return id;
+}
+public void setId(int id) {
+	this.id = id;
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public double getSalary() {
+	return salary;
+}
+public void setSalary(double salary) {
+	this.salary = salary;
+}
+@Override
+public String toString() {
+	return "Emp [id=" + id + ", name=" + name + ", salary=" + salary + "]";
+}
+}
+public class TestEmp {
+
+	public static void main(String[] args) {
+		Emp e1=new Emp(1947,"venu",200000.0);
+		Emp e2=new Emp();
+		e2.setId(1857);
+		e2.setName("krishna");
+		e2.setSalary(300000.0);
+		System.out.println("Fetching data using toString");
+		System.out.println(e1);
+		System.out.println(e2);
+		System.out.println("Fetching data using getters");
+		System.out.println(e1.getId()+" "+e1.getName()+" "+e1.getSalary());
+	System.out.println(e2.getId()+" "+e2.getName()+" "+e2.getSalary());
+		
+
+	}
+
+}
+
+
+
+
+create a class Amazon with private fields as follows
+class Amazon
+{
+String name;
+long mobileNum;
+String email;
+String password;
+}
+use parameterized constructor and setters and getters 
+toString() test its functionalities in another class
+TestEcommerce
+
+
+Ex:
+class Amazon
+{
+private String name;
+private long mobileNum;
+private String email;
+private String password;
+public Amazon() {
+
+}
+public Amazon(String name, long mobileNum, String email, String password) {
+	super();
+	this.name = name;
+	this.mobileNum = mobileNum;
+	this.email = email;
+	this.password = password;
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public long getMobileNum() {
+	return mobileNum;
+}
+public void setMobileNum(long mobileNum) {
+	this.mobileNum = mobileNum;
+}
+public String getEmail() {
+	return email;
+}
+public void setEmail(String email) {
+	this.email = email;
+}
+public String getPassword() {
+	return password;
+}
+public void setPassword(String password) {
+	this.password = password;
+}
+@Override
+public String toString() {
+	return "Amazon [name=" + name + ", mobileNum=" + mobileNum + ", email=" + email + ", password=" + password + "]";
+}	
+	
+}
+public class TestEcommerce {
+
+	public static void main(String[] args) {
+		Amazon user1=new Amazon("venu",9898989898l,"dvmadav@gmail.com","pas#$@76");
+	    Amazon user2=new Amazon();
+	    user2.setName("kranthi");
+	    user2.setMobileNum(8787878787l);
+	    user2.setEmail("krte@yahoomail.com");
+	    user2.setPassword("#$123do");
+	    
+	    System.out.println(user1);
+	    System.out.println(user2);
+	    System.out.println("=========================");
+	    System.out.println("user1 details");
+	    
+	  System.out.println("Name: "+user1.getName()); 
+	  System.out.println("Mobile Number: "+user1.getMobileNum());
+	  System.out.println("Mail Id: "+user1.getEmail());
+	  System.out.println("Password: "+user1.getPassword());
+	  System.out.println("=========================");
+	  System.out.println("user2 details");
+	  System.out.println("Name: "+user2.getName()); 
+	  System.out.println("Mobile Number: "+user2.getMobileNum());
+	  System.out.println("Mail Id: "+user2.getEmail());
+	  System.out.println("Password: "+user2.getPassword());
+	  
+	  
+	    
+
+	}
+
+}
+
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+

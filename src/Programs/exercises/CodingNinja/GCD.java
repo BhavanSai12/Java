@@ -1,0 +1,41 @@
+package Programs.exercises.CodingNinja;
+
+import java.util.Scanner;
+
+public class GCD {
+        // gcd() method, returns the GCD of a and b
+        static int gcd(int a, int b)
+        {
+            // stores minimum(a, b)
+            int i;
+            if (a < b)
+                i = a;
+            else
+                i = b;
+
+            // take a loop iterating through smaller number to 1
+            for (i = i; i > 1; i--) {
+
+                // check if the current value of I divide both
+                // numbers with remainder 0 if yes, then I is
+                // the GCD of a and b
+                if (a % i == 0 && b % i == 0)
+                    return i;
+            }
+
+            // if there are no common factors for a and b other
+            // than 1, then GCD of a and b is 1
+            return 1;
+        }
+        // Driver method
+        public static void main(String[] args)
+        {
+            Scanner sc=new Scanner(System.in);
+            int a = sc.nextInt(), b =sc.nextInt();
+
+            // calling gcd function
+            System.out.println("GCD = " + gcd(a,b));
+        }
+
+
+}

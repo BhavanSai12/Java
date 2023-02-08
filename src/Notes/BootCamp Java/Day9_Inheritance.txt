@@ -1,0 +1,434 @@
+Inheritance:
+accquring properties and methods from one class to another class.
+reusing one class features(data +methods) in another class.
+Inheritance is  is-a relationship.
+to implement Inheritance we need 2 classes. 1)parent class 2)child class
+
+Parent class: class which is ready to give its features to another class
+is called Parent class or Super or Base
+Child class: class which is ready to accepts features from another class
+is called Child or Sub class or Derived.
+
+A(parent)
+|
+B(child)
+
+Ex:
+class A{
+}
+class B extends A{
+}
+in inheritance to relate 2 classes use extends keyword
+
+Ex:
+class A
+{
+int a=10,b=5;
+void sum()
+{
+	System.out.println(a+b);
+}
+}
+public class B extends A{
+    void sub()
+    {
+    	System.out.println(a-b);
+    }
+	
+	public static void main(String[] args) {
+		A oba=new A();
+		oba.sum();
+		B obb=new B();
+		obb.sum();
+		obb.sub();
+
+	}
+
+}
+
+Adv: Resuability and Extensibility.
+types of Inheritance:
+
+
+
+1)single inheriatnce: 
+in an inheritance if we use one parent and one child class
+
+A
+|
+B
+2)multi level Inheriatnce
+here use parent class ,child class and sub child classes
+A
+|
+B(intermediate class)
+|
+C
+
+3)hirarichal Inheritance( one parent multiple sub classes)
+A class which has more child classes
+
+   A
+   |
+B    C
+
+4)multiple Inheriatnce:
+(multiple parent classes and 1 sub class)
+ A   B
+   |
+   C
+
+5)hybrid Inheritance
+it is the combination of any 2 classes.
+
+
+
+every class is child of Object class
+ a class can extend only one class, can not extends more than one class.
+Java  does not support multiple inheritance using class
+
+
+points related Inheritance:
+If we create an object to base class, we can access only the base class members, 
+but not the derived class members.But if we create an object to derived class, 
+all the members of both base and derived classes are available to it 
+This is the reason, we always create an object to derived class in inheritance
+
+final keyword:
+if we write final keyword before the class,
+from that class no class is derived.
+
+Ex:
+final class A
+{
+	int a=10;
+}
+class B extends A 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println(new B().a);
+	}
+}
+
+
+Data members and methods of a base class can be inherited into the derived 
+class but constructors of base class can not be inherited because every constructor
+ of a class is made for initializing its own data members but not made 
+for initializing the data members of other classes
+
+how constructors are called in Inheritance:
+In an inheritance if we create an object for sub class ,the sub class constructor
+called first,it internally calls its parent constructor.i.means
+constructor calling from sub class to parent and executed from parent 
+to sub class.
+
+Ex:
+ class A
+{
+	A()
+	{
+System.out.println(" Parent class A constructor");
+    }
+}
+class B extends A 
+{
+	B()
+	{
+	//super() is added 
+System.out.println(" Child  class B constructor");
+    }
+	public static void main(String[] args) 
+	{
+		B ob=new B();
+	}
+}
+
+
+
+EX1:
+class Person
+{
+	int age;
+	String name;
+
+}
+public class Student extends Person {
+	void readStudent(int i,String n)
+	{
+		age=i;
+		name=n;
+	}
+	void showStudent()
+	{
+		System.out.println("Name of Student:"+name);
+		System.out.println("Age of Student: "+age);
+		
+	}
+
+	public static void main(String[] args) {
+		Student s=new Student();
+		s.readStudent(20,"sai");
+		s.showStudent();
+
+	}
+
+}
+
+
+Ex2:
+class Person
+{
+	int age;
+	String name;
+}
+class Student extends Person {
+	void readStudent(int i,String n)
+	{
+		age=i;
+		name=n;
+	}
+	void showStudent()
+	{
+		System.out.println("Name of Student:"+name);
+		System.out.println("Age of Student: "+age);
+		
+	}
+}
+public class TestStudent {
+
+	public static void main(String[] args) {
+	  Student s=new Student();
+	  s.readStudent(23,"kiran");
+	  s.showStudent();
+			  
+
+	}
+
+}
+
+Implements Hirarichal Inheritance :
+create a class Shape have 3 argumnets l,b,h
+Rectangle extends Shape area1() find the area of Rectangle
+Traingle extends Shape area2() find the area of Traingle
+
+
+class Shape
+{
+double l=3.56,b=5.83,h=2.5;	
+}
+class Rectangle extends Shape
+{
+	void area1()
+	{
+		System.out.println(l*b);
+	}
+}
+class Traingle extends Shape
+{
+	void area2()
+	{
+		System.out.println(0.5*b*h);
+	}
+}
+public class TestHir {
+
+	public static void main(String[] args) {
+		Rectangle r=new Rectangle();
+		  r.area1();
+		  Traingle t=new Traingle();
+		  t.area2();
+
+	}
+
+}
+
+
+Implemeting Multilevel Inheritance:
+
+Student
+{
+rno
+name
+clgname
+void read(args){}
+}
+class StudentMarks extends Student
+{
+int m1,m2,m3,m4,m5,m6,totMarks;
+readMarks(args){}
+}
+void calMarks()
+{
+
+}
+class StudentMemo extends StudentMarks
+{
+void Show()
+{
+
+}
+}
+
+Ex:
+class Student
+{
+int rno;
+String name;
+String sName;
+void readStudent(int r,String n,String sn)
+{
+	rno=r;
+	name=n;
+	sName=sn;
+}
+}
+class StudentMarks extends Student
+{
+int m1,m2,m3,m4,m5,m6;
+double totMarks;
+void readMarks(int t,int h,int e,int m,int s,int ss)
+{
+m1=t;
+m2=h;
+m3=e;
+m4=m;
+m5=s;
+m6=ss;
+}
+void calMarks()
+{
+totMarks=m1+m2+m3+m4+m5+m6;
+}
+}
+class StudentMemo extends StudentMarks
+{
+void showRecord() {
+System.out.println("Name: "+name);	
+System.out.println("Roll NO: "+rno);
+System.out.println("School Name: "+sName);	
+System.out.println("Total Marks: "+totMarks);
+System.out.println("Cgpa: "+totMarks/6);
+}
+	
+}
+public class TestMul {
+
+	public static void main(String[] args) {
+		StudentMemo sm=new StudentMemo();
+		  sm.readMarks(85, 57, 72, 95, 85, 85);
+		  sm.readStudent(102,"sairam","sarawathimandir");
+		  sm.calMarks();
+		  sm.showRecord();
+
+	}
+
+}
+
+super(): 
+
+when parent class has parameterized constructor super is mandotory
+otherwise it is optional.
+
+Ex1:
+ class A
+{
+	A(int a)
+	{
+System.out.println(" Parent class parameterized constructor");
+    }
+}
+class B extends A 
+{
+	B()
+	{
+	super(100);
+System.out.println(" Child  class B constructor");
+    }
+	public static void main(String[] args) 
+	{
+		B ob=new B();
+	}
+}
+
+
+
+ class A
+{
+	A()
+	{
+System.out.println(" Parent class  constructor");
+    }
+}
+class B extends A 
+{
+	B(int a)
+	{
+System.out.println(" Child  class B parameterized constructor");
+    }
+	public static void main(String[] args) 
+	{
+		B ob=new B(100);
+	}
+}
+
+when parent and sub class has same features(data members /methods)
+to seperate both features we need super keyword usage inside the sub class.
+
+Ex:
+ class A
+{
+	void greet()
+	{
+System.out.println("good eveining");
+    }
+}
+class B extends A 
+{
+	
+void greet()
+	{
+	super.greet();
+System.out.println("welcome");
+    }
+	public static void main(String[] args) 
+	{
+		B ob=new B();
+		ob.greet();
+	}
+}
+
+this : is represents current class
+super: represents current class parent class.
+
+
+
+ class A
+{
+	int a=10,b=20;
+}
+class B extends A 
+{
+int a=100,b=200;
+	void sum(int a,int b)
+	{
+    System.out.println(super.a+super.b);//30
+    System.out.println(this.a+this.b);//300
+	System.out.println(a+b);//3000
+    }
+	public static void main(String[] args) 
+	{
+		B ob=new B();
+	ob.sum(1000,2000);
+	}
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,409 @@
+What is String in Java?
+String is predefined class available in java.lang package.
+String is collection/group of characters.
+
+String is nothing but character Array.
+char str[]={'v','e','n','u'};
+
+In java, a string is an object of String class
+String s=new String("java");
+In Java, each character in a  string is a 16-bit Unicode character
+
+String is final class
+i.e from the String we can not derive any new class.
+using String class we can create objects.
+there are 2 ways to create the String objects
+1) using literal
+2)using new keyword
+
+String s="codegnan";
+the string object is stroed in side the String Constant Pool(scp)
+
+String s1=new String("venu");
+the string object is stored in side the Heap memory when we use new keyword.
+s and s1 are String objects
+
+String is immuatable.
+with in the same memory location we can not modify the string data,if
+we are trying to modified the data ,new memory is allocated.
+
+String s="venu";
+s.concat("dasari");
+sop(s);//venu
+
+String s="venu";
+String s1=s.concat("dasari");
+sop(s1);//venudasari
+
+
+Ex1:
+
+public class StringEx {
+
+	public static void main(String[] args) {
+		String s="venu";
+		s.concat("dasari");
+		System.out.println(s);
+		String s1=s.concat("dasari");
+		System.out.println(s1);
+
+	}
+
+}
+
+hashCode(): returns the address of an object in decimal format
+Ex2:
+
+JVM stores strings in StringConstantPool(SCP) which are created by String class 
+without new Keyword.JVM always checks whether a string is exist in SCP or not.
+If the string is already present in pool then its reference is fetched.
+If the string is not present in pool then a new string object is created in the pool
+
+
+public class StringEx {
+
+	public static void main(String[] args) {
+		String s1="abc";
+		String s2=new String("abc");
+		String s3="abc";
+		System.out.println(s1.hashCode());
+		System.out.println(s3.hashCode());
+		System.out.println(s2.hashCode());
+		
+
+
+
+	}
+
+}
+
+
+String Methods:
+length():will return the length of the string.
+String s="codegnan";       sop(s.length());//8
+
+charAt():it is used to get each character from the string.
+this method will take index position as a parameter and returns character.  
+String s="codegnan";  sop(s.charAt(3));//e        lastindex=s.length()-1;
+c o d e g n a n
+0 1 2 3 4 5 6 7 
+indexOf():search a string for the occurrence of a char or String.
+ If the specified char or String is found in the target string, this method returns the first matching position, otherwise returns -1   Ex: String s="welcome";
+   sop(s.indexOf("e");// 1      sop(s.indexOf("z");// -1
+lastIndexOf(): returns the index of last occurring character/string in a given input.
+
+
+
+
+public class StringEx {
+
+	public static void main(String[] args) {
+
+   String s="codegnan";
+   System.out.println(s.length());
+   System.out.println(s.charAt(5));//n
+   System.out.println(s.indexOf('n'));//5
+   System.out.println(s.lastIndexOf('n'));//7
+   
+  
+		
+
+
+
+	}
+
+}
+
+
+
+public class StringEx {
+
+	public static void main(String[] args) {
+  String s1="codegnanitsoultions";
+   System.out.println(s1.substring(8,10));
+   String s2="   sairam    ";
+   System.out.println(s2.length());
+   System.out.println(s2.trim());
+   System.out.println(s2.trim().length());
+   String s3="kranthikumar";
+   System.out.println(s3.startsWith("kr"));
+   System.out.println(s3.startsWith("pr"));
+   System.out.println(s3.endsWith("r"));
+   String s4 = s3.replace('k','b');
+   System.out.println(s4);
+   
+  
+		
+
+
+
+	}
+
+}
+
+
+
+public class StringEx {
+
+	public static void main(String[] args) {
+
+  String s="";
+  System.out.println(s.length());
+  System.out.println(s.isEmpty());
+  String s1=" ";
+  System.out.println(s1.length());
+  System.out.println(s1.isEmpty());
+  String s2="venu";
+ // System.out.println(s2.charAt(4)); exception
+  System.out.println(s2.length()-1);
+  
+		
+
+
+
+	}
+
+}
+
+java uses Uni code System
+
+c uses ASCII  codes
+
+a=97   ....z=122
+A=65......Z=90
+
+97-65=32
+
+0=48  ...9=57
+space=32
+
+
+differences b/w == ,equals and compareTo	:	
+==: compare the strings based on address and returns boolean value
+s1==s2
+equals():compare the strings based on content and returns boolean value
+s1.equals(s2);
+compareTo(): compare the strings based on content character by character and returns int value
+s1.compareTo(s2);// s1-s2;
+if s1 and s2 are equal it returns zero
+otherwise returns +ve or -ve number
+
+public class StringEx {
+
+	public static void main(String[] args) {
+
+   String s1="venu";
+   String s2="venu";
+   String s3=new String("venu");
+   String s4="Venu";
+   System.out.println(s1==s2);//true
+   System.out.println(s1==s3);//false
+   System.out.println(s1.equals(s2));
+   System.out.println(s1.equals(s3));
+   System.out.println(s1.equals(s4));
+   System.out.println(s1.compareTo(s2));//0
+   System.out.println(s1.compareTo(s3));//0
+   System.out.println(s1.compareTo(s4));//32
+  
+		
+
+
+
+	}
+
+}
+
+
+
+
+public class StringEx {
+
+	public static void main(String[] args) {
+
+   String s="vijayawada";
+   System.out.println(s.toUpperCase());
+   String s1="JAVA";
+   System.out.println(s1.toLowerCase());
+   
+   String s2="codegnan it solutions java placement program";
+
+   for(String ss:s2.split(" "))
+	   System.out.println(ss);
+   
+   String s3="javaplacements";
+   char[] ch = s3.toCharArray();
+   for(int i=0;i<ch.length;i++)
+   {
+	   System.out.print(ch[i]+" ");
+   }
+   
+
+  
+		
+
+
+
+	}
+
+}
+
+
+diffrenece b/w length and length()
+
+length: is a variable used for find the size of the Array
+
+length(): is a method used for find the length of String
+
+1)
+input:venu@123java34
+
+output:13
+
+
+Explanation:
+
+v e n u @ 1 2 3
+0 1 2 3 4 5 6 7
+
+
+0    1   2   3   4   5  6   7  8   9
+48   49  50  51  52 53  54  55 56  57
+
+(ch[i]>=48 &&  ch[i]<=57)
+
+String toLowerCase():converts into lowercase string.
+String toUpperCase():converts into uppercase string.
+split():used to split a string based on a delimiter ,
+delimiter can be ' '(space) or any special character.
+toCharArray():is used to convert String to a character array format.
+
+
+
+import java.util.Scanner;
+
+public class StringEx {
+
+	public static void main(String[] args) {
+Scanner s=new Scanner(System.in);
+String str=s.next();
+char[] ch=str.toCharArray();
+int sum=0;
+for(int i=0;i<ch.length;i++)
+{
+if(ch[i]>=48&&ch[i]<=57)
+sum=sum+ch[i]-48;	
+}
+System.out.println(sum);  
+}
+}
+
+
+
+
+input: vvvveeennu
+
+output:v4e3n2u1
+
+input:aaaaabbbcc
+output:a5b3c2
+
+
+    v v v v e e e n n u
+    0 1 2 3 4 5 6 7 8 9
+
+
+
+import java.util.Scanner;
+
+public class StringEx {
+
+	public static void main(String[] args) {
+Scanner s=new Scanner(System.in);
+String str=s.next();
+char[] ch=str.toCharArray();
+for(int i=0;i<ch.length;i++)
+{
+int c=1;
+for(int j=i+1;j<ch.length;j++)
+{
+if(ch[i]==ch[j])
+{
+c++;
+ch[j]='@';
+}
+}
+if(ch[i]!='@')
+	System.out.print((char)ch[i]+""+c);
+}
+
+}
+
+}
+
+
+palindrom:
+palindrom numbers: 121 1221 333 141
+palindrom strings : level,liril,mom,dad,malayalam
+
+
+c o d e g n a n
+0 1 2 3 4 5 6 7
+
+str="codegnan";
+
+rev="";
+
+rev="nangedoc"
+
+
+
+import java.util.Scanner;
+
+public class StringEx {
+
+	public static void main(String[] args) {
+Scanner s=new Scanner(System.in);
+String str=s.next();
+String rev="";
+for(int i=str.length()-1;i>=0;i--)
+{
+rev=rev+str.charAt(i);	
+}
+if(str.equals(rev))
+	System.out.println("palindrome");
+else
+	System.out.println("not palindrome");
+
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

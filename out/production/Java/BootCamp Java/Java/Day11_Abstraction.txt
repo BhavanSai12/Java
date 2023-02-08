@@ -1,0 +1,553 @@
+Abstraction:
+hiding the implementation details and showing only essentional services.
+Ex: CodeGnan App
+    ATM 
+
+In Java Abstraction is implemented by 2 ways
+1) abstract class
+2)interface
+
+abstract class:
+contains may or may abstract methods but object creation is
+not possible  and uses abstract keyword before the classname.
+
+Syn:
+abstract class classname
+{
+abstract methods
+non-abstract methods
+}
+abstract methods:
+are uses abstract keyword and method declaration.
+syn:
+abstract void sum();
+non-abstract methods:(defined methods)
+methods with out using abstract keyword and method defination
+ void sub()
+{
+//body of the method
+} 
+
+Ex:
+abstract class Calc
+{
+abstract void add();
+void sub()
+{
+//logic
+}
+}
+
+Calc ob=new Calc();//wrong
+object creation is not possible for Abstract class.
+
+concrete class:
+abstract methods of abstract class are defined by another class
+is called concrete class.
+concrete class has the responsibilty to implement all the abstract 
+methods of Abstract class, other wise it will become abstract class.
+
+Abstract class forces is-a relationship.
+
+Ex1:
+abstract class A
+{
+abstract void greet();	
+}
+class B extends A
+{
+void greet()
+{
+	System.out.println("Hello Every One");
+}
+}
+public class TestAb {
+
+	public static void main(String[] args) {
+      B ob=new B();
+       ob.greet();
+ 
+	}
+
+}
+
+for abstract class object creation is not possible but
+but create reference variable which is pointing to its implemented class.
+A ob=new B();//upcasting
+
+Ex:
+abstract class A
+{
+abstract void greet();	
+}
+class B extends A
+{
+void greet()
+{
+	System.out.println("Hello Every One");
+}
+}
+public class TestAb {
+
+	public static void main(String[] args) {
+      A ob=new B();
+       ob.greet();
+ 
+	}
+
+}
+
+
+Ex2:
+abstract class A
+{
+abstract void greet();
+abstract void wish();
+}
+class B extends A
+{
+void greet()
+{
+	System.out.println("Hello Every One");
+}
+void wish()
+{
+	System.out.println("welcome");
+}
+}
+public class TestAb {
+
+	public static void main(String[] args) {
+      B ob=new B();
+       ob.greet();
+       ob.wish();
+ 
+	}
+
+}
+
+
+Ex:
+abstract class A
+{
+abstract void greet();
+abstract void wish();
+}
+abstract class B extends A
+{
+void greet()
+{
+	System.out.println("Hello Every One");
+}
+}
+class C extends B
+{
+	void wish()
+	{
+		System.out.println("Welcome");
+	}	
+}
+public class TestAb {
+
+	public static void main(String[] args) {
+      C ob=new C();
+       ob.greet();
+       ob.wish();
+ 
+	}
+
+}
+
+Ex3:
+abstract class A
+{
+void show()
+{
+	System.out.println("hello");
+}
+}
+ class B extends A
+{
+void show()
+{
+	System.out.println("Hai");
+}
+}
+
+public class TestAb {
+
+	public static void main(String[] args) {
+      B ob=new B();
+      ob.show();
+ 
+	}
+
+}
+
+
+abstract class A
+{
+void show()
+{
+	System.out.println("hello");
+}
+}
+ class B extends A
+{
+}
+
+public class TestAb {
+
+	public static void main(String[] args) {
+      B ob=new B();
+      ob.show();
+ 
+	}
+
+}
+
+final,private and static modifiers are not applied for abstract method.
+
+
+1)create a abstract class Bank use rateOfIntrest() as abstract method.
+define different rate of Intrests for Bank Implementation sub classes
+HdfcBank and IciciBank.
+
+abstract class Bank
+{
+abstract void rateOfIntrest();	
+}
+class HdfcBank extends Bank
+{
+void rateOfIntrest() {
+		System.out.println("the rate of Intrest of Hdfc:12.5%");
+}
+}
+class IciciBank extends Bank
+{
+void rateOfIntrest() {
+		System.out.println("the rate of Intrest of Icici:10.5%");
+}
+}		
+public class Loans {
+
+public static void main(String[] args) {
+HdfcBank hb=new HdfcBank();
+hb.rateOfIntrest();
+IciciBank ic=new IciciBank();
+ic.rateOfIntrest();
+
+}
+}
+
+
+ create a class Emp having datamembers eid,ename,cname.
+use cal_sal() as abstract method.derive 2 sub classes Part_Emp 
+and Full_Emp  
+calucate salaries of 2 employees.
+
+abstract class Emp
+{
+int eid;
+String ename;
+String cname;
+public Emp(int eid, String ename, String cname) {
+	super();
+	this.eid = eid;
+	this.ename = ename;
+	this.cname = cname;
+}
+void  displayEmp()
+{
+System.out.println("Name: "+ename);
+System.out.println("Id: "+eid);
+System.out.println("Company: "+cname);
+}
+abstract void cal_sal();
+}
+class Part_Emp extends Emp
+{
+
+	public Part_Emp(int eid, String ename, String cname) {
+		super(eid, ename, cname);
+		// TODO Auto-generated constructor stub
+	}
+
+	void cal_sal() {
+		int hours=100;
+		int aph=250;
+		 super.displayEmp();
+		System.out.println("Part Time Emp Salary:"+(hours*aph));
+		
+	}
+	
+}
+class Full_Emp extends Emp
+{
+
+	public Full_Emp(int eid, String ename, String cname) {
+		super(eid, ename, cname);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	void cal_sal() {
+		int days=28;
+		int apd=500;
+		super.displayEmp();
+		System.out.println("Full Time Emp Salary"+(days*apd));
+		
+	}
+	
+}
+public class TestEmp {
+
+	public static void main(String[] args) {
+		Full_Emp u1=new Full_Emp(167,"ramu","kksolutions");
+		 u1.cal_sal();
+      Part_Emp u2=new Part_Emp(789,"kiran","ggtechnologies");
+        u2.cal_sal();
+
+	}
+
+}
+
+Interface: is an abstract class and uses keyword interface,by default
+datamembers are public static final type and methods are public abstract.
+for interface also object creation is not possible
+interace not use any constructors
+
+syn:
+interface interface_name
+{
+[optional][public static final] datatype var=value;
+[optional][public abstract] datatype methodname();
+
+}
+
+Ex:
+interface I1
+{
+int a=100;// public static final is added automatically
+void show();//public abstract is also added 
+}
+
+Interface ob=new Interface();//wrong
+to implement abstract methods we need concrete class that uses implements
+keyword
+finally interface is not forces is -a relationship.
+class A implements I1
+{
+public void show()
+{
+sop("hello");
+}
+}
+
+I1 ob=new A(); //upcasting
+A ob=new A();
+
+interface I
+{
+void show();	
+}
+class A implements I
+{
+public void show() {
+		System.out.println("Hello Every One");
+		
+	}
+	
+}
+public class TestInt {
+
+	public static void main(String[] args) {
+		 A ob=new A();
+		 ob.show();
+		 I ob1=new A();
+		  ob1.show();
+
+	}
+
+}
+
+
+
+one class extends only with one but one interface can extends with multiple interfaces
+one class can implements multiple interfaces
+class extends  class
+interface  extends interface
+class  implements interface
+class A extends B,C //in valid
+class A implements B,C//valid
+interface it1 extends it2
+interface it1 extends it2,it3
+class A extends B implements It1,it2
+
+
+
+
+Multiple Inheritance:
+I1                 I2
+      |         
+      C
+
+class C implements A,B
+
+
+Ex:
+interface I1
+{
+void wish();
+}
+interface I2
+{
+void greet();
+}
+class C implements I1,I2
+{
+public void greet() {
+		System.out.println("Hello");
+	}
+
+	@Override
+	public void wish() {
+		System.out.println("Welcome");
+	}
+}
+public class TestMulInh {
+
+	public static void main(String[] args) {
+	 C ob=new C();
+	 ob.wish();
+	 ob.greet();
+
+	}
+
+}
+
+
+ create a interface Calc having calculate(int a) abstract method.
+using 2 sub classes SubCalc1 and SubCalc2 find the squreroot and squre.
+ 
+interface Calc
+{
+void calculate(int a);	
+}
+class SubCalc1 implements Calc
+{
+@Override
+	public void calculate(int a) {
+	System.out.println("Square Root: "+Math.sqrt(a));
+}
+}
+class SubCalc2 implements Calc
+{
+
+	@Override
+	public void calculate(int a) {
+		System.out.println("Square is: "+(a*a));
+		
+	}
+	
+}
+public class TestCalc {
+
+	public static void main(String[] args) {
+		Calc ob1=new SubCalc1();
+		ob1.calculate(5);
+		Calc ob2=new SubCalc2();
+		ob2.calculate(5);
+       
+	}
+
+}
+
+
+note: in abstract class data members are not final type.
+abstract class X
+{
+int a=100;	
+}
+class Y extends X
+{
+void showA()
+{
+a=a+100;	
+System.out.println(a);
+}
+}
+public class TestFinal {
+
+	public static void main(String[] args) {
+		Y ob=new Y();
+		ob.showA();
+
+	}
+
+}
+
+note: in interface datamembers are final types
+
+interface X
+{
+int a=100;	
+}
+class Y implements X
+{
+void showA()
+{
+//a=a+100;	
+System.out.println(a);
+}
+}
+public class TestFinal {
+
+	public static void main(String[] args) {
+		Y ob=new Y();
+		ob.showA();
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,326 @@
+java.lang is default package in java
+java.lang package consists of classes like
+
+Object
+Math
+String
+StringBuffer
+StringBuilder
+System
+All wrapper classes.
+
+
+Object:
+Object is the root class for every class.
+that means the methods of Object class is available to its Sub classes.
+
+hashCode():
+ return the address in decimal format
+
+toString():
+return the current class object in String foramt
+getClass():
+get the fullqualified classname from the current class 
+finalize():
+    it is invoked before garbage collection
+equals():
+ return the bolean if 2 objects are point to same address
+clone() 
+ return the new object from the existing object
+
+Ex1:
+package com.codegnan;
+
+public class Emp {
+	   int id;
+	   String name;
+	   double salary;
+	   @Override
+		public String toString() {
+			return id+" "+name+" "+salary;
+
+		}  
+
+	public static void main(String[] args) {
+		Emp e=new Emp();
+		//System.out.println(e);//classname@hexedecimal code
+		System.out.println(e.hashCode());
+		e.id=100;
+		e.name="venu";
+		e.salary=2000000.0;
+		System.out.println(e);
+		System.out.println(e.getClass());
+		System.out.println(e.getClass().getName());
+		
+		
+
+	}
+
+
+	
+
+}
+
+ex2:
+package com.codegnan;
+
+public class Emp {
+	   int id;
+	   String name;
+	   double salary;
+ protected void finalize(){
+	 System.out.println("Object is deallocted");
+ }
+	
+public static void main(String[] args) {
+		Emp e=new Emp();
+        e.id=100;
+		e.name="venu";
+		e.salary=2000000.0;
+		Emp e2=new Emp();
+		Emp e3=new Emp();
+		e3=null;
+		e2=null;
+		System.gc();
+
+
+	}
+}
+
+ex3:
+package com.codegnan;
+
+public class Emp {
+public static void main(String[] args) {
+	Integer ob1=new Integer(10);
+	Float ob2=new Float(12.45f);
+	System.out.println(ob1.equals(ob2));
+	System.out.println(ob1.equals(10));
+
+}
+}
+
+
+ex4:
+package com.codegnan;
+
+public class Emp implements Cloneable{
+	   int id;
+	   String name;
+	   double salary;
+	   public String toString() {
+			return id+" "+name+" "+salary;
+
+		}  
+
+	
+public static void main(String[] args) throws CloneNotSupportedException {
+		Emp e=new Emp();
+        e.id=100;
+		e.name="venu";
+		e.salary=2000000.0;
+		System.out.println(e);// first object details
+	       Emp enew = (Emp) e.clone(); //doing cloning
+		     System.out.println(enew);// after cloning enew object details
+           
+
+
+
+	}
+}
+
+
+Math class:
+
+Math is final and its methods are static methods.
+using Math class we call the static methods.
+Ex:
+sqrt(): find the square root of given number
+
+pow(): find the power of a given value.
+
+ceil():
+it gives the nearest int (express in double ) which is greter than or
+equals to given number.
+
+floor():
+it gives the nearest int (express in double ) which is less than or
+equals to given number.
+
+round(): round the given value to closest integer, it is 
+express in int or long type.
+Ex: 1.34=1
+    1.56=2
+
+sin(): to find trigonometric ratios 
+asin(): to find arc sin of trigonametric ratios
+
+random():
+give the random number that must be lies b/w 0 to 1 only
+
+
+package com.codegnan;
+
+public class MathMethods {
+
+	public static void main(String[] args) {
+		System.out.println(Math.sqrt(36));
+		System.out.println(Math.pow(2,5));
+		System.out.println(Math.PI);
+		System.out.println(Math.E);
+		System.out.println(Math.ceil(12.34));
+		System.out.println(Math.floor(12.34));
+		System.out.println(Math.round(12.34));
+		System.out.println(Math.round(12.54));
+		System.out.println(Math.asin(0.50));
+		System.out.println(Math.sin(0));
+		System.out.println(Math.random());
+	   System.out.println((int)(Math.random()*1000000));
+		
+		
+		
+
+	}
+
+}
+
+String is final and Immutable class.
+StringBuffer and StringBuilder are mutable classes.
+
+Wrapper classes:
+for every primitive type there is a Reference/Object type class.
+Ex:
+datatype     wrapper class
+int         Integer
+char        Character
+long        Long
+
+wrapper classes converts primitive type to reference type.
+
+autoboxing:
+the process of converting primitive to reference is called
+autoboxing
+
+EX:
+package com.codegnan;
+
+public class AutoBoxEx {
+
+	public static void main(String[] args) {
+		int a=100;
+		Integer ob1=new Integer(a);
+		System.out.println(ob1);
+		//boxing using constructor
+		Integer ob2=Integer.valueOf(a);
+		System.out.println(ob2);
+		//boxing using valueOf()
+		Integer ob3=a;
+		// internally uses valueOf()
+		System.out.println(ob3);
+
+	}
+
+}
+
+unboxing:
+the process of converting reference/object type to primitive 
+
+to convert reference to primitive use xxxValue() method
+
+  to converts Interger object to int use intValue()
+
+  to converts  object to float use floatValue()
+
+
+
+Ex:
+package com.codegnan;
+
+public class UnBoxEx {
+
+	public static void main(String[] args) {
+		
+		Integer ob1=new Integer(20);
+		    int a = ob1.intValue();
+		    float b=ob1.floatValue();
+		   System.out.println(a);
+		   System.out.println(b);
+		   String s=ob1.toString();
+		   System.out.println(s);
+		   System.out.println(s.length());
+		   char ch=s.charAt(0);
+		   System.out.println(ch);
+
+
+
+	}
+
+}
+
+
+System :
+
+System.out.println(): 
+
+class System
+{
+
+   static PrintStream out;
+
+}
+
+// System.out is an object of PrintStream class
+
+class PrintStream{
+println()
+
+}
+
+objectname.methodname();
+
+System.out.println();
+
+
+Integer:
+
+package com.codegnan;
+
+public class Ex {
+
+	public static void main(String[] args) {
+		
+     System.out.println(Integer.MIN_VALUE);
+     System.out.println(Integer.MAX_VALUE);
+     System.out.println(Integer.toHexString(1947));
+     System.out.println(Integer.toBinaryString(1947));
+     System.out.println(Integer.toOctalString(1947));
+   
+
+
+	}
+
+}
+
+ 
+Character:
+package com.codegnan;
+
+public class Ex {
+
+	public static void main(String[] args) {
+		
+     Character ch=new Character('a');
+     System.out.println(ch);
+     System.out.println(ch.toUpperCase(ch));
+     System.out.println(Character.isAlphabetic(ch));
+     System.out.println(Character.isDigit(ch));
+     System.out.println(Character.isLetter(ch));
+   
+
+
+	}
+
+}
+
+
+

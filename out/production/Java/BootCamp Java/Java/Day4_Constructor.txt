@@ -1,0 +1,364 @@
+find the factorial of a given no using instance method
+
+Method Declaration:
+ int fact(int n)
+
+
+input:5 
+output:120
+
+EX1:
+import java.util.Scanner;
+class Task
+{
+int fact(int n)
+{
+int f=1;
+for(int i=1;i<=n;i++)
+f=f*i;
+return f;
+}
+public static void main(String args[])
+{
+Scanner s=new Scanner(System.in);
+System.out.println("Enter the Number");
+int n=s.nextInt();
+Task t=new Task();
+System.out.println(t.fact(n));
+}
+}
+
+
+import java.util.Scanner;
+class Task
+{
+static int fact(int n)
+{
+int f=1;
+for(int i=1;i<=n;i++)
+f=f*i;
+return f;
+}
+public static void main(String args[])
+{
+Scanner s=new Scanner(System.in);
+System.out.println("Enter the n and r values");
+int n=s.nextInt();
+int r=s.nextInt();
+System.out.println(fact(n)/(fact(n-r)*fact(r)));
+}
+}
+
+
+
+
+
+
+import java.util.Scanner;
+class Task
+{
+static int fact(int n)
+{
+int f=1;
+for(int i=1;i<=n;i++)
+f=f*i;
+return f;
+}
+public static void main(String args[])
+{
+Scanner s=new Scanner(System.in);
+System.out.println("Enter the n of rows");
+int n=s.nextInt();
+for(int i=0;i<n;i++)
+{
+for(int j=0;j<n-i;j++)
+System.out.print(" ");
+for(int j=0;j<=i;j++)
+{
+System.out.print(fact(i)/(fact(i-j)*fact(j))+" ");
+}
+System.out.println();
+}
+}
+}
+
+
+
+Recursion: Method call itself
+
+
+A()
+{
+A();
+}
+
+A()  //nested method
+{
+B();
+}
+
+
+
+find factorial of a number using recursion
+5!=5*4!=
+fact(5)=5*fact(5-1);
+  =5*4*3!=5*4*fact(4-1); 
+  =5*4*3*2!
+  =5*4*3*2*1!
+  =5*4*3*2*1*0!
+  =
+  =5*4*3*2*1*1
+
+int fact(int n)
+{
+if(n==0)
+return 1;
+else
+return n*fact(n-1);
+}
+
+
+
+Ex:
+
+import java.util.Scanner;
+class Task
+{
+int fact(int n)
+{
+if(n==0)
+return 1;
+else
+return n*fact(n-1);
+}
+public static void main(String args[])
+{
+Scanner s=new Scanner(System.in);
+System.out.println("Enter the Number");
+int n=s.nextInt();
+Task t=new Task();
+System.out.println(t.fact(n));
+}
+}
+
+
+logic for finding sum of n numbers using recursion
+int sum(int n)
+{
+if(n==1)
+return 1;
+else
+return n+sum(n-1);
+}
+RootDigit:
+do the sum of the digits of the number until to get
+a single digit
+
+
+input:1947
+output:3
+1+9+4+7=21=2+1=3
+
+input:5689
+output:1
+
+
+
+
+
+
+import java.util.Scanner;
+class Task
+{
+int rootDigit(int n)
+{
+int sum=0;
+while(n!=0)
+{
+int r=n%10;
+sum=sum+r;
+n=n/10;
+}
+if(sum>9)
+return rootDigit(sum);
+else
+return sum;
+}
+public static void main(String args[])
+{
+Scanner s=new Scanner(System.in);
+System.out.println("Enter the Number");
+int n=s.nextInt();
+Task t=new Task();
+System.out.println(t.rootDigit(n));
+}
+}
+
+gcd of 2 numbers:
+greatest common divisor
+ 24 8=8
+
+  8)24(3
+    24
+   ----
+    0
+12 15=3
+12)15(1
+   12
+  ---
+    3)12(4
+      12
+------------
+0
+
+
+import java.util.Scanner;
+class Task
+{
+int gcd(int a,int b)
+{
+if(a%b==0)
+   return b;
+else 
+return gcd(b,a%b);
+}
+public static void main(String args[])
+{
+Scanner s=new Scanner(System.in);
+System.out.println("Enter the 2 numbers");
+int a=s.nextInt();
+int b=s.nextInt();
+Task t=new Task();
+System.out.println(t.gcd(a,b));
+}
+}
+
+int ans=1;
+for(int i=1;i<=e;i++)
+{
+ans=ans*b;
+}
+
+while(e!=0)
+{
+ans=ans*b;
+e--;
+}
+
+           2      3
+int power(int b,int e)
+{
+if(e!=0)
+return b*power(b,e-1); //2*2*2*1
+else
+return 1;
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.util.Scanner;
+class Task
+{
+void sum(int n)
+{
+int s=0;
+for(int i=1;i<=n;i++)
+s=s+i;
+System.out.println(s);
+}
+public static void main(String args[])
+{
+Scanner s=new Scanner(System.in);
+System.out.println("Enter the Number");
+int n=s.nextInt();
+Task t=new Task();
+t.sum(n);
+}
+}
+
+
+
+
+import java.util.Scanner;
+class Task
+{
+static void calc(int n)
+{
+System.out.println(n*n);
+System.out.println(n*n*n);
+}
+public static void main(String args[])
+{
+Scanner s=new Scanner(System.in);
+System.out.println("Enter the Number");
+int n=s.nextInt();
+calc(n);
+}
+}
+
+
+/*public static double area(double r) //pi*r*r
+public static double peri(double r)  //2*pi*r
+*/
+import java.util.Scanner;
+class Calc
+{
+public static double area(double r)
+{
+return Math.PI*r*r;
+}
+public static double peri(double r)
+{
+return 2*Math.PI*r;
+}
+public static void main(String args[])
+{
+Scanner s=new Scanner(System.in);
+System.out.println("enter the radius of the circle");
+double r=s.nextDouble();
+System.out.println("The area of circle is: "+area(r));
+System.out.println("The perimeter of circle is: "+peri(r));
+}
+}
+
+
+area of traingle is 0.5*b*h
+
+ public double area(double b,double h)
+
+static int fact(int n);
+ncr=n!/(n-r)!*r!
+ncr=fact(n)/fact(n-r)*fact(r)
