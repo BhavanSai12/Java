@@ -24,5 +24,6 @@ public class StringMethods {
         convertUpper(sentence);
         convertLength(sentence);
         replaceStr(sentence);
+
     }
 }
