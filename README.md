@@ -35,12 +35,10 @@ In today’s World, Java is not only invading the internet, but also it is an in
 > JVM : Java Virtual Machine is the main part of Java programming, which providesplatform independence. JRE and JDK both contain JVM in order to run our Javaprograms.
 
 ## JDK
-> JDK:
-This development kit is mainly used for developing programs.
+> JDK: This development kit is mainly used for developing programs.
 
 ## JRE
->JRE:
-Java Runtime Environment is mainly used for running Java programs.
+>JRE: Java Runtime Environment is mainly used for running Java programs.
 - Setting Up the Java Environment 
 
 
@@ -48,9 +46,9 @@ Java Runtime Environment is mainly used for running Java programs.
 Datatypes in Java
 specify the values and sizes that can be stored in the variables. There aremainly two types of data types; they are
 
->Primitive Data Types
+>Primitive Data Types : Primitive data types in Java are the major constituents of data manipulation. These are themost basic data types that are available in Java. The primitive data types include int, char,byte, float, double, long, short, and boolean.
 
->Non-primitive Data Types
+>Non-primitive Data Types : The non-primitive data types are something that is different from primitive data types, andthese non-primitive data types include String, arrays, and structures.
 
 
 | Datatypes     | Default Values| Sizes  | Examples  |
@@ -148,20 +146,82 @@ int n=90;//local variable
 } }//end of class
 ```
 
-- Conditional Statements
+## Conditional Statements
+In Java control statements are divided into three types. They are:
+- Selection Statements
+	> A selection statement is mainly used to transfer program control to a specific flow based upon the condition either true or false. These selection statements are also called conditional statements.
+	
+	- If Statement
+	```bash
+	Syntax:
+		if(condition){  
+		//code to be executed  
+		}  
+	--------------------------------------------------------
+	
+	//Java Program to demonstate the use of if statement.  
+		public class IfExample {  
+		public static void main(String[] args) {  
+		    //defining an 'age' variable  
+		    int age=20;  
+		    //checking the age  
+		    if(age>18){  
+			System.out.print("Age is greater than 18");  
+		    }  
+		}  
+		} 
+	```
+
+	- if-else Statement
+
+	- Switch Statement
+		
+- Iterative/looping Statements
+	> The iterative statements in Java are also called looping statements, these statements are the set of statements that repeat continuously until the condition for the termination is not met.
+
+	- For loop
+
+	- While loop
+
+	- Do-while loop
+
+
+- Jump Statements.
+    > In Java, jump statements are mainly used to transfer control to another part of our program depending on the condition. Moreover, these statements are used to jump directly to other statements.
+    - Break and Continue are the two jump statements present in Java.
+
 - Loops 
+
 - Modifiers | Operators
 ## Arrays & String Manipulations
 - array vs array list
 - Scope of Variables
 - Type Conversion in Java Switch Statements
 ## Classes ,Objects & Methods
-- Classes And Objects
-- Methods 
+## Class 
+> Collection of objects is called class. It is a logical entity.
+A class can also be defined as a blueprint from which you can create an individual object. Class
+doesn't consume any space.
+
+## Object
+> Objects have states and behaviors. Example: A dog has states - color, name, breed as well as
+behaviors – wagging the tail, barking, eating. An object is an instance of a class.
+
+## Methods
+> In general, a method is a way to perform some task. Similarly, the method in Java is a collection of instructions that performs a specific task. It provides the reusability of code. We can also easily modify code using methods.
+
+> Predefined Method :
+In Java, predefined methods are the method that is already defined in the Java class libraries is known as predefined methods. It is also known as the standard library method or built-in method. We can directly use these methods just by calling them in the program at any point. Some predefined methods are length(), equals(), compareTo(), sqrt(), etc.
+
+> User-defined Method :
+The method written by the user or programmer is known as a user-defined method. These methods are modified according to the requirement
+
 - Method Overloading
 - Method Overiding
 - Parameter passing
-- constructors
+## Constructors
+> A constructor is a special type of method with a block of code to initialize the state of an object. A constructor is called only when the instance of the object is created. Every time in Java object is created using the new keyword and by default, the constructor is called. 
+
 ## OOPs Concept
 - Inheritance
 - Encapsulation
