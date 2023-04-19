@@ -177,7 +177,7 @@ str.substring(startIndex, endIndex);
 
 
 
-#String Repetition
+# String Repetition
 >The repeat() method returns a string whose value is the concatenation of the given string repeated N times.
 
 If the string is empty or the count is zero then the empty string is returned.
@@ -231,30 +231,71 @@ In Java control statements are divided into three types. They are:
 - Selection Statements
 	> A selection statement is mainly used to transfer program control to a specific flow based upon the condition either true or false. These selection statements are also called conditional statements.
 	
-	- If Statement
-	```bash
-	Syntax:
-		if(condition){  
-		//code to be executed  
-		}  
-	--------------------------------------------------------
+	- If Statement 
 	
-	//Java Program to demonstate the use of if statement.  
-		public class IfExample {  
-		public static void main(String[] args) {  
-		    //defining an 'age' variable  
-		    int age=20;  
-		    //checking the age  
-		    if(age>18){  
-			System.out.print("Age is greater than 18");  
-		    }  
-		}  
-		} 
-	```
+		```
+		Syntax:
+			if(condition){  
+			//code to be executed  
+			}  
+		--------------------------------------------------------
 
-	- if-else Statement
+		//Java Program to demonstate the use of if statement.  
+			public class IfExample {  
+			public static void main(String[] args) {  
+			    //defining an 'age' variable  
+			    int age=20;  
+			    //checking the age  
+			    if(age>18){  
+				System.out.print("Age is greater than 18");  
+			    }  
+			}  
+			} 
+		```
 
-	- Switch Statement
+	- if-else Statement :
+		> the if else  conditional statement works similar to that in python.When an if...else conditional statement is used ,the if block of codes executes when the condition is true, otherwise the else block of code is executed.
+
+					```
+						Syntax:
+						if (condition){
+						//block of code to be executed if the condition is true
+						} else{
+						// block of code to be executed if the condition is false
+						}
+					```
+			
+			
+			**Summary**
+				- when an if..else conditional statement is used,the if block executes when the conditions is true otherwise the else block of code is executed.
+				- the else if statement is optional.
+				- we can add any number of else if statements after if conditional block.
+
+	- Switch Statement : The switch statement is more readable when compared to if...else statement. The body of a switch statement is known as a switch block. A switch block can have multiple case or default labels. The switch statement allows us to execute a block of code among many cases.
+				```
+				Syntax:
+				switch (expression) {
+
+			    case value1:
+				// block of code
+				break;
+
+			    case value2:
+				// block of code
+				break;
+
+				```
+				
+
+			**Summary**
+				The switch statement:
+
+						- The body of a switch statement is known as a switch block.
+						- A switch block can have multiple case or default labels.
+						- The switch works only with primitive data types like byte, short, char, and int. It also works with String class, and a few wrapper classes like Character, Byte, Short, and Integer.
+						- The break statement:
+						- The break statement makes the program exit the switch block early.
+						- If the break is not included, all the remaining cases after the matching case will also be executed.
 		
 - Iterative/looping Statements
 	> The iterative statements in Java are also called looping statements, these statements are the set of statements that repeat continuously until the condition for the termination is not met.
@@ -449,6 +490,13 @@ class Main {
 	Syntax:
 	variable= falsevariable= (expression) ? expression true : expression false
 	```
+**Summary**
+- Ternary Operator is a one-liner replacement for if...else statements. It takes three operands (i.e, condition, expression1, and expression2).
+- The ternary operator evaluates the condition and executes a block of code based on the result of the condition.
+- A Ternary operator can be used inside another ternary operator. It is called the nested ternary operator.
+- The ternary operator always returns the value of the expression which is executed.
+
+
 - Shift operators
 
 ## Arrays & String Manipulations
