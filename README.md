@@ -1,7 +1,9 @@
 # Understand the Basics
 
 ## Java
->Java is a popular object-oriented programming language. It is defined as a completecollection of objects. By using Java, we can develop lots of applications such as gaming,mobile apps, and websites.
+>Java is a popular procedural and object-oriented programming language. It was created in 1995 and is owned by Oracle.
+
+>Java is a secure, fast, and powerful programming language. Java works on different platforms (Windows, Mac, Linux, etc.). It has huge community support (tens of millions of developers).
 
 ## History 
 >In the year 1991, a small group of engineers called ‘Green Team’ led by James Gosling, workeda lot and introduced a new programming language called “Java”. This language is created insuch a way that it is going to revolutionize the world.
@@ -67,6 +69,14 @@ specify the values and sizes that can be stored in the variables. There aremainl
 | float         | 0.0f          | 4 byte | float f1 = 234.5f                   |
 | double        | 0.0d          | 8 byte | double d1 = 12.3                    |
 
+
+Data Types
+
+>Primitive Data Types are those that are predefined in Java. They are boolean, char, byte, short, int, long, float, double.
+
+>Non-Primitive Data Types are defined by the programmer. They are String, Array, Class.
+
+
 ## TypeCasting
 **Widening** (automatically) - conversion of a smaller data type to a larger data type size.
 >byte-> short -> char -> int -> long -> float -> double
@@ -76,7 +86,7 @@ specify the values and sizes that can be stored in the variables. There aremainl
 
 ## Type Conversion
 There are two types of type conversions, and they are :
->Implicit type conversion
+>Implicit type conversion : Java compiler automatically converts one data type to another data type.
 
 Example
 ```bash
@@ -99,8 +109,7 @@ public class ImplicitTypecastingExample {
 } 
 ```
  
->Explicit type conversion
-
+>Explicit type conversion : Programmers change the data type of an object to the desired data type.
 Example
 ```bash
 // Main class
@@ -127,11 +136,59 @@ public class GFG {
 }
 
 ```
+# Conversion using methods
+- String.valueOf(): converts any primitive data type into a string.
+- Integer.parseInt(): convert String to int data type.
+- Character.getNumericValue(): converts char to int data type.
+- Character.forDigit(): converts int to char.
+- Double.parseDouble(str): convert String to double data type.
+- Float.parseFloat(str): convert String to float data type.
+
+## String
+>A string is a sequence of characters.
+
+All string variables we declare are instances of the 'String' class.
+
+# String methods:
+
+- concat(): Used to concatenate two strings.
+- length(): Used to get the characters count of a string.
+- charAt(): Used to get the character at a specific index.
+- substring(): Used to get a slice of a string.
+- repeat(): Used to get a concatenated string repeated n times.
+
+
+# String Concatenation
+>The concatenation of strings involves joining two or more strings together to create a new string
+
+In Java, we can perform string concatenation in two ways,
+
+Using string method concat()
+Using + operator
+
+# String Slicing
+> Obtaining a part of a string is called string slicing.
+
+The substring() method can be used to access a part of the string.
+```
+str.substring(startIndex, endIndex);
+```
 
 
 
+
+#String Repetition
+>The repeat() method returns a string whose value is the concatenation of the given string repeated N times.
+
+If the string is empty or the count is zero then the empty string is returned.
+```
+str.repeat(count);
+```
 ## Variables
  Variables in Java can be defined as a basic storage unit of a program. It is a storage unit thatholds the value during the program execution. Always the variable is assigned with a datatype.
+ >Assigning a value to a variable for the first time is called Initialization. Memory is allocated when a variable is initialized.
+ 
+ >Declaring and initializing a variable in a single statement is called Defining a variable.
 
 >**Static Variables**:
 A variable that is declared with the static keyword is called a static variable.A static variable cannot be a local variable, and the memory is allocated only once for thesevariables.
@@ -150,6 +207,24 @@ void method(){
 int n=90;//local variable
 } }//end of class
 ```
+## The Final Keyword
+The final keyword is used for variables, classes and methods, which makes them non-changeable (impossible to inherit or override).
+
+The final keyword is useful when you want a variable to always store the same value, like PI (3.14159...).
+
+## The final Variables
+When the final keyword is used with a variable, it indicates that the variable is constant and the value of it cannot be reassigned (cannot be changed).
+
+
+## BODMAS
+The standard order of evaluating an expression
+
+- Brackets (B)
+- Orders (O)
+- Division (D)
+- Multiplication (M)
+- Addition (A)
+- Subtraction (S)
 
 ## Conditional Statements
 In Java control statements are divided into three types. They are:
@@ -216,6 +291,14 @@ By default, all the classes, variables, and methods are of default scope. Thedef
 | Protected | Y |Y |Y   |    N |
 |Public |Y|Y|Y|Y|
 
+## Syntax
+System.out.println() statement is used to print a line of output to the console.
+
+>System is a class from the core library provided by Java.
+
+>out is an object that controls the output.
+
+>println()  is a method associated with that object that receives a single argument.
 
 ## Operators
 
@@ -270,6 +353,9 @@ By default, all the classes, variables, and methods are of default scope. Thedef
 	}
 	```
 - **Logical operators**
+Logical AND Operator gives true if both the conditions are true.
+Logical OR Operator gives true if any of the conditions are true.
+Logical NOT Operator gives the opposite of the boolean value.
 
 	```
 	class Main {
